@@ -9,7 +9,6 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('First Route'),
         actions: <Widget>[
-          // Add 3 lines from here...
           IconButton(
               icon: Icon(Icons.list),
               onPressed: () {
