@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hack_project/data/article.dart';
+import 'package:flutter_hack_project/data/repository.dart';
+import 'list_item.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -16,10 +19,11 @@ class _SearchListExampleState extends State<SearchScreen> {
   );
   final globalKey = new GlobalKey<ScaffoldState>();
   final TextEditingController _controller = new TextEditingController();
-  List<dynamic> _list;
+  List<dynamic> _list, _item_list;
   bool _isSearching;
   String _searchText = "";
   List searchresult = new List();
+  List articleList = Repository.categories[0].articles;
 
   _SearchListExampleState() {
     _controller.addListener(() {
@@ -51,41 +55,57 @@ class _SearchListExampleState extends State<SearchScreen> {
     _list.add("podcast");
   }
 
+  void list_items() {
+    List articleList = Repository.categories[0].articles;
+    _item_list = List();
+    for (Article article in articleList) {
+      _item_list.add(article);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        key: globalKey,
-        appBar: buildAppBar(context),
-        body: new Container(
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              new Flexible(
-                  child: searchresult.length != 0 || _controller.text.isNotEmpty
-                      ? new ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: searchresult.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            String listData = searchresult[index];
-                            return new ListTile(
-                              title: new Text(listData.toString()),
-                            );
-                          },
-                        )
-                      : new ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: _list.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            String listData = _list[index];
-                            return new ListTile(
-                              title: new Text(listData.toString()),
-                            );
-                          },
-                        ))
-            ],
-          ),
-        ));
+      key: globalKey,
+      appBar: buildAppBar(context),
+      // body: new Container(
+      //   child: new Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     mainAxisSize: MainAxisSize.min,
+      //     children: <Widget>[
+      //       new Flexible(
+      //         child: searchresult.length != 0 || _controller.text.isNotEmpty
+      //             ? buildSearchResult(context)
+      //             : buildDefaultResult(context),
+      //       )
+      //     ],
+      //   ),
+      // ),
+      body: buildDefaultResult(context),
+    );
+  }
+
+  Widget buildSearchResult(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: searchresult.length,
+      itemBuilder: (BuildContext context, int index) {
+        String listData = searchresult[index];
+        return new ListTile(
+          title: new Text(listData.toString()),
+        );
+      },
+    );
+  }
+
+  Widget buildDefaultResult(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: articleList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return new ListItem(articleList[index]);
+      },
+    );
   }
 
   Widget buildAppBar(BuildContext context) {
@@ -145,7 +165,7 @@ class _SearchListExampleState extends State<SearchScreen> {
     searchresult.clear();
     if (_isSearching != null) {
       for (int i = 0; i < _list.length; i++) {
-        String data = _list[i];
+        String data = _item_list[i];
         if (data.toLowerCase().contains(searchText.toLowerCase())) {
           searchresult.add(data);
         }
