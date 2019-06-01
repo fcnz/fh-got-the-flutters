@@ -5,8 +5,6 @@ import 'package:flutter_hack_project/section/feed_setion.dart';
 import 'package:flutter_hack_project/section/profile_setion.dart';
 import 'package:flutter_hack_project/section/about_section.dart';
 
-import 'about_screen.dart';
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
