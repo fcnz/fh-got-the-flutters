@@ -3,6 +3,7 @@ import 'package:flutter_hack_project/detail_screen.dart';
 import 'package:flutter_hack_project/section/bookmarks_setion.dart';
 import 'package:flutter_hack_project/section/feed_setion.dart';
 import 'package:flutter_hack_project/section/profile_setion.dart';
+import 'package:flutter_hack_project/section/about_section.dart';
 
 import 'about_screen.dart';
 
@@ -17,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     FeedSection(),
     BookmarksSection(),
     ProfileSection(),
+    AboutSection(),
   ];
 
   @override
@@ -52,6 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             title: Text('Profile'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help_outline),
+            title: Text('About'),
           )
         ],
       ),
