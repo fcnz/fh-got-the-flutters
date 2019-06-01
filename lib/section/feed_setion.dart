@@ -12,7 +12,7 @@ class FeedSection extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DetailScreen()),
+              MaterialPageRoute(builder: (context) => DetailScreen(articleId: 0)),
             );
           },
         ),
