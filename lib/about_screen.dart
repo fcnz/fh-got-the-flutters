@@ -6,15 +6,22 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('About'),
-        actions: <Widget>[
-          // Add 3 lines from here...
-          IconButton(icon: Icon(Icons.list), onPressed: _HomeScreen),
-        ], // ... to here.
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              'This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. ',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. ',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
     );
-  }
-  void _HomeScreen() {
   }
 }
