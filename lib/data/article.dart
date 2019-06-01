@@ -5,6 +5,7 @@ class Article {
   int id;
   String title;
   String description;
+  String articleUrl;
   String imageUrl;
   int categoryId;
   MediaType mediaType;
@@ -13,6 +14,7 @@ class Article {
     @required this.id,
     @required this.title,
     @required this.description,
+    @required this.articleUrl,
     @required this.imageUrl,
     @required this.categoryId,
     @required this.mediaType,
