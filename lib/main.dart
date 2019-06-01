@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hack_project/home_sceen.dart';
+import 'package:flutter_hack_project/home_screen.dart';
 import 'package:flutter_hack_project/search_screen.dart';
 
 void main() => runApp(MyApp());
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      //home: HomeScreen(),
-      home: SearchScreen(),
+      home: HomeScreen(),
+      // home: SearchScreen(),
     );
   }
 }
