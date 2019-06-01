@@ -16,8 +16,11 @@ class AboutScreen extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
-              'This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. ',
+              'Built by:',
               style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'Fraser Croad, Linus WK Chan, John Graves and Nic Tolentino',
             ),
           ],
         ),
