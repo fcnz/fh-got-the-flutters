@@ -25,19 +25,22 @@ class ListItem extends StatelessWidget {
             margin: const EdgeInsets.only(left: 20.0, right: 20.0),
             // child: Image.asset('image-1.jpg', height: 80, width: 80),
             child: Image.network(article.imageUrl, height: 80, width: 80)),
-        Column(
-          children: <Widget>[
-            Text(article.title,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontWeight: FontWeight.bold)),
-            Text(
-              article.description,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-            )
-          ],
-        )
+        Container(
+            width: 250,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(article.title,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(
+                  article.description,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ))
       ],
     );
   }
