@@ -38,14 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-//        backgroundColor: Colors.blue,unselectedItemColor: Colors.white,
         onTap: onTabTapped,
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
             title: new Text('Feed'),
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.blue, // changes all backgrounds
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.bookmark),
