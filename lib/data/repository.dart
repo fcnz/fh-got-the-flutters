@@ -168,7 +168,19 @@ class Repository {
           articleUrl: "https://www.google.com",
           imageUrl: "https://i.pinimg.com/originals/3d/9e/4f/3d9e4f792038dfc496bb9176d17b940e.jpg",
           mediaType: MediaType.discussion,
-        ),],
+        ),
+      ],
     ),
   ];
+
+  static Article getArticle(int articleId) {
+    for(Category category in categories) {
+      for(Article article in category.articles) {
+        if (article.id == articleId) return article;
+      }
+    }
+
+    // default article, because returning null is evil! :P
+    return categories[0].articles[0];
+  }
 }
