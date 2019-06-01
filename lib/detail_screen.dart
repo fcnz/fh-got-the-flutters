@@ -18,8 +18,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class DetailScreenState extends State<DetailScreen> {
-  bool isFavourite = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,13 +26,13 @@ class DetailScreenState extends State<DetailScreen> {
           actions: <Widget>[
             // Add 3 lines from here...
             IconButton(
-              icon: Icon(isFavourite ? Icons.favorite : Icons.favorite_border),
+              icon: Icon(widget.article.isFavourite ? Icons.favorite : Icons.favorite_border),
               onPressed: () {
                 setState(() {
-                  if (isFavourite) {
-                    isFavourite = false;
+                  if (widget.article.isFavourite) {
+                    widget.article.isFavourite = false;
                   } else {
-                    isFavourite = true;
+                    widget.article.isFavourite = true;
                   }
                 });
               },
