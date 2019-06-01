@@ -6,7 +6,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Get Flutter'),
+        title: Text('About Got the Flutters'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
