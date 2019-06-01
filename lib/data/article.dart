@@ -9,6 +9,7 @@ class Article {
   String imageUrl;
   int categoryId;
   MediaType mediaType;
+  bool isFavourite = false;
 
   Article({
     @required this.id,
