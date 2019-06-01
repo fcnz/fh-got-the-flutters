@@ -23,8 +23,11 @@ class _FeedSectionState extends State<FeedSection> {
   Widget _buildCarousel(Category category) {
     return Column(
       children: <Widget>[
-        Row(
-          children: <Widget>[Text(category.title), Spacer()],
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(category.title,
+                style:
+                    new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0))
         ),
         CarouselSlider(
             viewportFraction: 0.33,
