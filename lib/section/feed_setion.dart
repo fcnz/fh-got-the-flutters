@@ -30,8 +30,7 @@ class _FeedSectionState extends State<FeedSection> {
                     new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0))
         ),
         CarouselSlider(
-            viewportFraction: 0.33,
-            aspectRatio: 16 / 9,
+            viewportFraction: 1 / 3,
             items: category.articles.map((article) {
               return Builder(
                 builder: (BuildContext context) {
