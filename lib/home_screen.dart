@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hack_project/detail_screen.dart';
+// import 'package:flutter_hack_project/detail_screen.dart';
 import 'package:flutter_hack_project/section/bookmarks_setion.dart';
 import 'package:flutter_hack_project/section/feed_setion.dart';
 import 'package:flutter_hack_project/section/profile_setion.dart';
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Flutter App'),
+        title: Text('Get Flutter'),
         actions: <Widget>[
           // Add 3 lines from here...
           IconButton(
@@ -64,3 +64,25 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 }
+
+//class _HomeScreenState extends State<HomeScreen> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Scaffold(
+//      appBar: AppBar(
+//        title: Text('First Route'),
+//      ),
+//      body: Center(
+//        child: RaisedButton(
+//          child: Text('Open route'),
+//          onPressed: () {
+//            Navigator.push(
+//              context,
+//              MaterialPageRoute(builder: (context) => DetailScreen()),
+//            );
+//          },
+//        ),
+//      ),
+//    );
+//  }
+//}
