@@ -6,11 +6,14 @@ import 'data/repository.dart';
 
 class DetailScreen extends StatefulWidget {
   Article article;
+  String heroTag;
 
   DetailScreen({
     @required int articleId,
+    @required String heroTag,
   }) {
     article = Repository.getArticle(articleId);
+    this.heroTag = heroTag; // Not sure why I need to do this.<field> on this line but not on the previous.
   }
 
   @override
@@ -26,7 +29,9 @@ class DetailScreenState extends State<DetailScreen> {
           actions: <Widget>[
             // Add 3 lines from here...
             IconButton(
-              icon: Icon(widget.article.isFavourite ? Icons.favorite : Icons.favorite_border),
+              icon: Icon(widget.article.isFavourite
+                  ? Icons.favorite
+                  : Icons.favorite_border),
               onPressed: () {
                 setState(() {
                   if (widget.article.isFavourite) {
@@ -42,9 +47,11 @@ class DetailScreenState extends State<DetailScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Image.network(
-                widget.article.imageUrl,
-              ),
+              Hero(
+                  tag: widget.heroTag,
+                  child: Image.network(
+                    widget.article.imageUrl,
+                  )),
               Row(
                 children: <Widget>[
                   Spacer(),
@@ -65,8 +72,14 @@ class DetailScreenState extends State<DetailScreen> {
                   children: <Widget>[
                     Table(
                       children: <TableRow>[
-                        TableRow(children: [Text("Summary:"), Text(widget.article.description)]),
-                        TableRow(children: [Text("Tags:"), Text("Learning, Images")]),
+                        TableRow(children: [
+                          Text("Summary:"),
+                          Text(widget.article.description)
+                        ]),
+                        TableRow(children: [
+                          Text("Tags:"),
+                          Text("Learning, Images")
+                        ]),
                         TableRow(children: [Text("Likes:"), Text("224")])
                       ],
                     )
