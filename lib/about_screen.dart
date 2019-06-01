@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About'),
+        title: Text('About Got the Flutters'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -28,17 +29,32 @@ class AboutScreen extends StatelessWidget {
               'Found something great you want to share? Great! First check to see if it is already listed. If not, add it to the appropriate category.\n\nWe appreciate it!\n',
               style: TextStyle(fontSize: 16.0),
             ),
-            Text(
-              'Built by Got the Flutters for Hack19',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+            InkWell(
+              child: Text("Built for Hack19",
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0, color: Colors.blue)),
+              onTap: _launchURL,
             ),
             Text(
-              'Fraser Croad, Linus WK Chan, John Graves and Nic Tolentino',
+              'Got the Flutters Team:',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            ),
+            Text(
+              'Fraser Croad, Linus WK Chan, John Graves and Nic Tolentino\n\n2019 Auckland, New Zealand',
               style: TextStyle(fontSize: 16.0),
             ),
           ],
         ),
       ),
     );
+  }
+
+  _launchURL() async {
+    const url = 'https://flutterhackathon.com/';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
