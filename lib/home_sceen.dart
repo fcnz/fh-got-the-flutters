@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hack_project/detail_screen.dart';
+import 'package:flutter_hack_project/search_screen.dart';
 import 'package:flutter_hack_project/section/bookmarks_setion.dart';
 import 'package:flutter_hack_project/section/feed_setion.dart';
 import 'package:flutter_hack_project/section/profile_setion.dart';
@@ -29,11 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: <Widget>[
           // Add 3 lines from here...
           IconButton(
-              icon: Icon(Icons.list),
+              icon: Icon(Icons.search),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AboutScreen()),
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
                 );
               }),
         ],
